@@ -12,7 +12,7 @@ label_encoder_breed = label_encoders['breed']
 label_encoder_traits = label_encoders['traits']
 
 # กำหนดหัวข้อและคำอธิบาย
-st.title("Dog Breed Character Traits Predictor")
+st.title("Dog Breed Character Traits ")
 st.write("Enter a dog breed to predict its character traits.")
 
 # ช่องป้อนข้อมูล
