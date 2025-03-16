@@ -9,18 +9,18 @@ label_encoder_breed = label_encoders['breed']
 label_encoder_traits = label_encoders['traits']
 
 # เมนูเลือกหน้า
-page = st.selectbox("Select a page", ["Main", "Home", "Neural Network", "Machine Learning"])
+page = st.selectbox("Select a page", ["Main", "Dog Breed Machine", "Neural Network", "Machine Learning"])
 
 if page == "Main":
     # หน้า Main (Welcome Page)
-    st.title("🌟Intelligent System🌟")
+    st.title("🌟 Welcome to Intelligent System 🌟")
     st.write("""
         🤖 **Hello and Welcome!**  
         This is a basic knowledge center about intelligent systems. With basic AI models, please come and try it.! 🐶✨
     """)
 
-elif page == "Home":
-    # หน้า Home
+elif page == "Dog Breed Machine":
+    # หน้า Dog Breed Machine
     st.title("Dog Breed Character Traits Predictor")
     st.write("Enter a dog breed to predict its character traits.")
 
