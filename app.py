@@ -12,7 +12,7 @@ label_encoder_breed = label_encoders['breed']
 label_encoder_traits = label_encoders['traits']
 
 # เมนูเลือกหน้า
-page = st.selectbox("Select a page", ["Dog Breed", "Neural Network", "Machine Learning"])
+page = st.selectbox("Select a page", ["Home", "Neural Network", "Machine Learning"])
 
 if page == "Home":
     # หน้า Home
