@@ -11,6 +11,21 @@
         h1 {
             color: #333;
         }
+        nav {
+            background-color: #333;
+            overflow: hidden;
+        }
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: #575757;
+        }
         input[type="text"] {
             padding: 10px;
             margin: 10px;
@@ -26,28 +41,63 @@
         input[type="submit"]:hover {
             background-color: #45a049;
         }
+        .content {
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
-    <h1>ตัวทำนายลักษณะนิสัยของพันธุ์สุนัข</h1>
-    <form action="/predict" method="post">
-        <input type="text" name="breed" placeholder="กรุณากรอกพันธุ์สุนัข (เช่น Labrador)" required><br>
-        <input type="submit" value="ทำนาย">
-    </form>
-    <hr>
-    <h3>ข้อมูลของ Dataset</h3>
-    <p>ข้อมูลชุดนี้มาจาก Kaggle และประกอบด้วยฟีเจอร์ต่างๆ ดังนี้:</p>
-    <ul>
-        <li><b>Country of Origin:</b> ประเทศที่พันธุ์สุนัขนั้นๆ มาจาก</li>
-        <li><b>Breed:</b> พันธุ์สุนัข</li>
-        <li><b>Fur Color:</b> สีขนของสุนัข</li>
-        <li><b>Height (inches):</b> ความสูงของสุนัข (หน่วยเป็นนิ้ว)</li>
-        <li><b>Color of Eyes:</b> สีตาของพันธุ์สุนัข</li>
-        <li><b>Longevity (years):</b> อายุขัยเฉลี่ยของพันธุ์สุนัข</li>
-        <li><b>Character Traits:</b> ลักษณะนิสัยที่ทำนายจากพันธุ์สุนัข</li>
-        <li><b>Common Health Problems:</b> ปัญหาสุขภาพที่พบได้บ่อยในพันธุ์สุนัขนั้น</li>
-    </ul>
-    <hr>
-    <a href="/">ลองใหม่อีกครั้ง</a>
+
+    <!-- Navbar -->
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#neural">Neural Network</a>
+        <a href="#machine">Machine Learning</a>
+    </nav>
+
+    <!-- หน้า Home -->
+    <div id="home" class="content">
+        <h1>ข้อมูลเกี่ยวกับการพัฒนาโมเดล</h1>
+        <p><strong>การเตรียมข้อมูล:</strong> เริ่มจากการรวบรวมข้อมูลที่เกี่ยวข้องกับพันธุ์สุนัขจาก Kaggle โดยข้อมูลนี้ประกอบด้วยฟีเจอร์ต่างๆ เช่น พันธุ์, สีขน, สีตา, ความสูง, อายุขัย, ลักษณะนิสัย และปัญหาสุขภาพทั่วไป</p>
+        <p><strong>ทฤษฎีของอัลกอริทึมที่พัฒนา:</strong> ในการพัฒนาโมเดลนี้ เราใช้ **Decision Tree Classifier** สำหรับการคาดเดาลักษณะนิสัยจากพันธุ์สุนัข ซึ่งเป็นอัลกอริธึมที่ใช้ในการแบ่งกลุ่มข้อมูลโดยการสร้างต้นไม้การตัดสินใจ</p>
+        <p><strong>ขั้นตอนการพัฒนาโมเดลทั้ง 2 ประเภท:</strong> ในขั้นตอนแรกเราได้ทำการแปลงข้อมูลเชิงข้อความให้เป็นค่าตัวเลขโดยใช้ **LabelEncoder** และจากนั้นจึงนำข้อมูลที่แปลงแล้วมาฝึกโมเดล Decision Tree และ Neural Network ตามลำดับ</p>
+    </div>
+
+    <!-- หน้า Neural Network -->
+    <div id="neural" class="content">
+        <h1>Neural Network</h1>
+        <p><strong>Neural Network (เครือข่ายประสาทเทียม):</strong> เป็นโมเดลที่ได้รับแรงบันดาลใจมาจากสมองของมนุษย์ โดยมีการเชื่อมโยงของนิวรอนหลายๆ ตัวเพื่อใช้ในการคาดการณ์หรือจำแนกข้อมูล อัลกอริธึมนี้เหมาะกับข้อมูลที่มีความซับซ้อนและไม่สามารถแยกแยะได้ด้วยการใช้ฟังก์ชันเชิงเส้นธรรมดา</p>
+    </div>
+
+    <!-- หน้า Machine Learning -->
+    <div id="machine" class="content">
+        <h1>Machine Learning</h1>
+        <p><strong>Machine Learning (การเรียนรู้ของเครื่อง):</strong> เป็นการใช้คอมพิวเตอร์เพื่อฝึกฝนจากข้อมูลและทำให้เครื่องสามารถเรียนรู้และทำนายผลลัพธ์ได้เองโดยไม่ต้องมีการเขียนโปรแกรมระบุไว้ล่วงหน้า</p>
+    </div>
+
+    <!-- ฟอร์มทำนาย -->
+    <div class="content">
+        <h3>ตัวทำนายลักษณะนิสัยของพันธุ์สุนัข</h3>
+        <form action="/predict" method="post">
+            <input type="text" name="breed" placeholder="กรุณากรอกพันธุ์สุนัข (เช่น Labrador)" required><br>
+            <input type="submit" value="ทำนาย">
+        </form>
+        <hr>
+        <h3>ข้อมูลของ Dataset</h3>
+        <p>ข้อมูลชุดนี้มาจาก Kaggle และประกอบด้วยฟีเจอร์ต่างๆ ดังนี้:</p>
+        <ul>
+            <li><b>Country of Origin:</b> ประเทศที่พันธุ์สุนัขนั้นๆ มาจาก</li>
+            <li><b>Breed:</b> พันธุ์สุนัข</li>
+            <li><b>Fur Color:</b> สีขนของสุนัข</li>
+            <li><b>Height (inches):</b> ความสูงของสุนัข (หน่วยเป็นนิ้ว)</li>
+            <li><b>Color of Eyes:</b> สีตาของพันธุ์สุนัข</li>
+            <li><b>Longevity (years):</b> อายุขัยเฉลี่ยของพันธุ์สุนัข</li>
+            <li><b>Character Traits:</b> ลักษณะนิสัยที่ทำนายจากพันธุ์สุนัข</li>
+            <li><b>Common Health Problems:</b> ปัญหาสุขภาพที่พบได้บ่อยในพันธุ์สุนัขนั้น</li>
+        </ul>
+        <hr>
+        <a href="#">ลองใหม่อีกครั้ง</a>
+    </div>
+
 </body>
 </html>
