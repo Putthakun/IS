@@ -11,7 +11,7 @@ label_encoder_traits = label_encoders['traits']
 # เมนูเลือกหน้า
 page = st.selectbox("Select a page", ["Home", "Neural Network", "Machine Learning"])
 
-if page == "Dog Machine":
+if page == "Home":
     # หน้า Home
     st.title("Dog Breed Character Traits Predictor")
     st.write("Enter a dog breed to predict its character traits.")
