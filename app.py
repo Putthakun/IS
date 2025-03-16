@@ -14,10 +14,10 @@ page = st.selectbox("Select a page", ["Home", "Neural Network", "Machine Learnin
 if page == "Home":
     # หน้า Home
     st.title("Dog Breed Character Traits Predictor")
-    st.write("Enter a dog breed to predict its character traits.")
+    st.write("ข้อมูลเกี่ยวกับการเตรียมข้อมูลและทฤษฎีการพัฒนาโมเดล")
 
-    # ข้อมูลเพิ่มเติมเกี่ยวกับ Dataset
-    st.subheader("Dataset Information")
+    # ข้อมูลเกี่ยวกับ Dataset
+    st.subheader("ข้อมูลเกี่ยวกับ Dataset")
     st.write("""
         This dataset is sourced from Kaggle. It includes the following features:
         - **Country of Origin**: The country where the breed originated.
@@ -52,9 +52,27 @@ if page == "Home":
 elif page == "Neural Network":
     # หน้า Neural Network
     st.title("Neural Network")
-    st.write("Here, we discuss how neural networks are applied to predict the character traits of dog breeds.")
+    st.write("""
+        A Neural Network is a type of machine learning model inspired by the way biological neural networks in the human brain process information. 
+        It's designed to recognize patterns, learn from data, and make predictions or decisions.
+
+        A neural network consists of layers of nodes, also known as neurons, which are connected to each other in a network. The main components of a neural network are:
+
+        - **Input Layer**: The first layer, which takes in the raw data (e.g., an image, text, or numerical values).
+        - **Hidden Layers**: Layers between the input and output, where computations and transformations happen. These layers help the network learn complex patterns in the data.
+        - **Output Layer**: The final layer, which produces the network's prediction or decision.
+    """)
 
 elif page == "Machine Learning":
     # หน้า Machine Learning
     st.title("Machine Learning")
-    st.write("Here, we explain the machine learning techniques used for predicting dog breed character traits.")
+    st.write("""
+        Machine Learning (ML) is a field of artificial intelligence (AI) that focuses on developing algorithms and models that enable computers to learn from data and make decisions or predictions without being explicitly programmed.
+
+        There are three main types of machine learning:
+
+        - **Supervised Learning**: The model is trained on labeled data (input with correct output). The goal is for the model to learn the relationship between inputs and outputs and make predictions for new data.
+        - **Unsupervised Learning**: The model is trained on unlabeled data, seeking hidden patterns or groupings within the data.
+        - **Reinforcement Learning**: An agent learns by interacting with the environment and receiving feedback through rewards or punishments.
+    """)
+
