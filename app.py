@@ -60,13 +60,7 @@ elif page == "Dog Breed Machine":
 elif page == "Neural Network":
     # หน้า Neural Network
     st.title("Neural Network")
-    st.write("A Neural Network is a type of machine learning model inspired by the way biological neural networks in the human brain process information. It's designed to recognize patterns, learn from data, and make predictions or decisions.
-
-A neural network consists of layers of nodes, also known as neurons, which are connected to each other in a network. The main components of a neural network are:
-
-Input Layer: The first layer, which takes in the raw data (e.g., an image, text, or numerical values).
-Hidden Layers: Layers between the input and output, where computations and transformations happen. These layers help the network learn complex patterns in the data.
-Output Layer: The final layer, which produces the network's prediction or decision.")
+    st.write("Here, we discuss how neural networks are applied to predict the character traits of dog breeds.")
 
 elif page == "Machine Learning":
     # หน้า Machine Learning
