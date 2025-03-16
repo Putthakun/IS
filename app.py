@@ -61,7 +61,10 @@ elif page == "Neural Network":
     # หน้า Neural Network
     st.title("Neural Network")
     st.write("A Neural Network is a type of machine learning model inspired by the way the human brain works. It is made up of layers of interconnected nodes (also called neurons), which process information in a way similar to how neurons in the brain transmit signals.")
-
+    st.write("Here's a breakdown of its components:")
+    st.write("Input Layer: This is where the neural network receives input data. Each node in this layer represents a feature of the input data.")
+    st.write("Hidden Layers: These are layers between the input and output layers, where the actual computation happens. These layers consist of neurons that apply weights and biases to the inputs, followed by an activation function to determine the output of each neuron.")
+    st.write("Output Layer: This layer produces the final result or prediction based on the inputs and computations of the hidden layers.")
 elif page == "Machine Learning":
     # หน้า Machine Learning
     st.title("Machine Learning")
