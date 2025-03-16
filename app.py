@@ -1,6 +1,7 @@
 import streamlit as st
 import joblib
 import numpy as np
+import os
 
 # โหลดโมเดล
 model = joblib.load('dog_breed_model.pkl')
