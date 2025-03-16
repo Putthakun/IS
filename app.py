@@ -39,7 +39,7 @@ elif page == "Dog Breed Machine":
     """)
 
     # ช่องป้อนข้อมูล
-    breed_input = st.text_input("Enter a dog breed (Labrador Retriever,German Shepherd,Bulldog,Poodle):", "").strip()
+    breed_input = st.text_input("Enter a dog breed (Labrador Retriever,German Shepherd,Bulldog,Poodle(พิมพ์ใหญ่ตัวเเรกเสมอ)):", "").strip()
 
     # ปุ่มทำนาย
     if st.button("Predict"):
@@ -47,7 +47,7 @@ elif page == "Dog Breed Machine":
             st.error("Please enter a breed.")
         else:
             if breed_input not in label_encoder_breed.classes_:
-                st.warning(f"Breed '{breed_input}' not found in the dataset.")
+                st.warning(f"Breed '{breed_input}' Try again.")
             else:
                 try:
                     breed_encoded = label_encoder_breed.transform([breed_input]).reshape(1, -1)
