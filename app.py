@@ -60,7 +60,7 @@ elif page == "Dog Breed Machine":
 elif page == "Neural Network":
     # หน้า Neural Network
     st.title("Neural Network")
-    st.write("Here, we discuss how neural networks are applied to predict the character traits of dog breeds.")
+    st.write("A Neural Network is a type of machine learning model inspired by the way the human brain works. It is made up of layers of interconnected nodes (also called neurons), which process information in a way similar to how neurons in the brain transmit signals.")
 
 elif page == "Machine Learning":
     # หน้า Machine Learning
