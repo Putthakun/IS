@@ -13,11 +13,10 @@ page = st.selectbox("Select a page", ["Main", "Home", "Neural Network", "Machine
 
 if page == "Main":
     # หน้า Main (Welcome Page)
-    st.title("🌟 Welcome to AI Dog Breed Predictor 🌟")
+    st.title("🌟 Welcome to Intelligent System 🌟")
     st.write("""
         🤖 **Hello and Welcome!**  
-        This AI-powered system helps predict character traits of dog breeds using **Machine Learning** and **Neural Networks**.  
-        Explore the pages to learn more and try out the predictor! 🐶✨
+        This is a basic knowledge center about intelligent systems. With basic AI models, please come and try it.! 🐶✨
     """)
 
 elif page == "Home":
