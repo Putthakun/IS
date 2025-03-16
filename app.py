@@ -13,7 +13,7 @@ page = st.selectbox("Select a page", ["Main", "Home", "Neural Network", "Machine
 
 if page == "Main":
     # หน้า Main (Welcome Page)
-    st.title("🌟 Welcome to Intelligent System 🌟")
+    st.title("🌟Welcome to Intelligent System🌟")
     st.write("""
         🤖 **Hello and Welcome!**  
         This is a basic knowledge center about intelligent systems. With basic AI models, please come and try it.! 🐶✨
