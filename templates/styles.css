@@ -30,21 +30,19 @@ div {
     margin-top: 20px;
 }
 
-st.markdown("""
-    <style>
-        nav {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-        nav a {
-            margin: 0 15px;
-            font-size: 18px;
-            text-decoration: none;
-            color: #1e3d58;
-        }
-        nav a:hover {
-            color: #4CAF50;
-        }
-    </style>
+nav {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
 
+nav a {
+    margin: 0 15px;
+    font-size: 18px;
+    text-decoration: none;
+    color: #1e3d58;
+}
+
+nav a:hover {
+    color: #4CAF50;
+}

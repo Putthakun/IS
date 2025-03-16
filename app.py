@@ -2,6 +2,9 @@ import streamlit as st
 import joblib
 import numpy as np
 
+# โหลดไฟล์ CSS จากโฟลเดอร์ templates
+st.markdown('<link href="templates/styles.css" rel="stylesheet">', unsafe_allow_html=True)
+
 # โหลดโมเดล
 model = joblib.load('dog_breed_model.pkl')
 label_encoders = joblib.load('label_encoders.pkl')
@@ -75,4 +78,3 @@ elif page == "Machine Learning":
         - **Unsupervised Learning**: The model is trained on unlabeled data, seeking hidden patterns or groupings within the data.
         - **Reinforcement Learning**: An agent learns by interacting with the environment and receiving feedback through rewards or punishments.
     """)
-
