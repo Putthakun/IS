@@ -1,18 +1,86 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Machine Learning - Dog Breed Predictor</title>
-    <link rel="stylesheet" href="static/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Learning Overview</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 40px;
+            background-color: #f4f7fb;
+            color: #333;
+        }
+        h1 {
+            color: #1e3d58;
+            font-size: 2.5em;
+            text-align: center;
+        }
+        p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        ul {
+            font-size: 1.1em;
+            color: #555;
+            list-style: none;
+            padding-left: 0;
+        }
+        ul li {
+            margin-bottom: 15px;
+        }
+        ul li strong {
+            color: #1e3d58;
+            font-weight: bold;
+        }
+        .example {
+            font-style: italic;
+            color: #777;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 1em;
+            color: #888;
+        }
+        footer a {
+            color: #1e3d58;
+            text-decoration: none;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+    </style>
 </head>
 <body>
-    <nav>
-        <a href="/">Home</a>
-        <a href="/neural">Neural Network</a>
-        <a href="/machine">Machine Learning</a>
-    </nav>
-    <div>
-        <h1>Machine Learning</h1>
-        <p>ข้อมูลเกี่ยวกับการเรียนรู้ของเครื่อง...</p>
+    <div class="container">
+        <h1>Machine Learning Overview</h1>
+        <p>Machine Learning (ML) is a field of artificial intelligence (AI) that focuses on developing algorithms and models that enable computers to learn from data and make decisions or predictions without being explicitly programmed.</p>
+        
+        <p>In traditional programming, the programmer writes a set of rules or instructions to tell the computer what to do. In machine learning, instead of explicitly programming the rules, the computer learns from examples in the data, recognizing patterns and making predictions based on them.</p>
+        
+        <h2>Types of Machine Learning</h2>
+        <ul>
+            <li><strong>Supervised Learning</strong>: The model is trained on a labeled dataset, meaning the input data is paired with the correct output (or label). The goal is for the model to learn the relationship between inputs and outputs. 
+                <p class="example">Example: Predicting house prices based on features like size, location, etc.</p>
+            </li>
+            <li><strong>Unsupervised Learning</strong>: The model is trained on data that is not labeled, aiming to find hidden patterns or groupings in the data.
+                <p class="example">Example: Grouping customers into different segments based on purchasing behavior.</p>
+            </li>
+            <li><strong>Reinforcement Learning</strong>: The agent learns by interacting with its environment and receiving feedback in the form of rewards or punishments.
+                <p class="example">Example: Teaching a robot to navigate a maze by rewarding it when it takes the right path.</p>
+            </li>
+        </ul>
     </div>
+    <footer>
+        <p>&copy; 2025 Machine Learning Insights | Powered by <a href="https://chatgpt.com/" target="_blank">ChatGPT</a></p>
+    </footer>
 </body>
 </html>
