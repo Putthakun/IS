@@ -12,7 +12,7 @@ label_encoder_breed = label_encoders['breed']
 label_encoder_traits = label_encoders['traits']
 
 # เมนูเลือกหน้า
-page = st.selectbox("Select a page", ["Dog Breed", "Neural Network", "Machine Learning"])
+page = st.selectbox("Select a page", ["Home", "Neural Network", "Machine Learning"])
 
 if page == "Home":
     # หน้า Home
@@ -34,7 +34,7 @@ if page == "Home":
     """)
 
     # ช่องป้อนข้อมูล
-    breed_input = st.text_input("Enter a dog breed (Labrador Retriever,Bulldog(พิมใหญ่ตัวแรกเสมอ)):", "").strip()
+    breed_input = st.text_input("Enter a dog breed (Labrador Retriever,Bulldog()):", "").strip()
 
     # ปุ่มทำนาย
     if st.button("Predict"):
@@ -42,7 +42,7 @@ if page == "Home":
             st.error("Please enter a breed.")
         else:
             if breed_input not in label_encoder_breed.classes_:
-                st.warning(f"Breed '{breed_input}' Try again")
+                st.warning(f"Try '{breed_input}' Again.")
             else:
                 try:
                     breed_encoded = label_encoder_breed.transform([breed_input]).reshape(1, -1)
