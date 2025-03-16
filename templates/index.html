@@ -1,7 +1,7 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Dog Breed Predictor</title>
+    <title>ตัวทำนายลักษณะนิสัยของพันธุ์สุนัข</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -26,19 +26,28 @@
         input[type="submit"]:hover {
             background-color: #45a049;
         }
-        p {
-            font-size: 16px;
-            color: #555;
-            margin-top: 20px;
-        }
     </style>
 </head>
 <body>
-    <h1>Dog Breed Character Traits </h1>
-    <p>ระบบอัจฉริยะ (Intelligent System) คือ ระบบที่สามารถประมวลผลข้อมูลและทำการตัดสินใจได้อย่างอัตโนมัติโดยใช้เทคโนโลยีต่างๆ เช่น ปัญญาประดิษฐ์ (AI) และการเรียนรู้ของเครื่อง (Machine Learning) เพื่อให้สามารถแก้ปัญหาหรือทำงานที่ซับซ้อนได้อย่างมีประสิทธิภาพและแม่นยำ.</p>
+    <h1>ตัวทำนายลักษณะนิสัยของพันธุ์สุนัข</h1>
     <form action="/predict" method="post">
-        <input type="text" name="breed" placeholder="Enter a dog breed (e.g., Labrador)" required><br>
-        <input type="submit" value="Predict">
+        <input type="text" name="breed" placeholder="กรุณากรอกพันธุ์สุนัข (เช่น Labrador)" required><br>
+        <input type="submit" value="ทำนาย">
     </form>
+    <hr>
+    <h3>ข้อมูลของ Dataset</h3>
+    <p>ข้อมูลชุดนี้มาจาก Kaggle และประกอบด้วยฟีเจอร์ต่างๆ ดังนี้:</p>
+    <ul>
+        <li><b>Country of Origin:</b> ประเทศที่พันธุ์สุนัขนั้นๆ มาจาก</li>
+        <li><b>Breed:</b> พันธุ์สุนัข</li>
+        <li><b>Fur Color:</b> สีขนของสุนัข</li>
+        <li><b>Height (inches):</b> ความสูงของสุนัข (หน่วยเป็นนิ้ว)</li>
+        <li><b>Color of Eyes:</b> สีตาของพันธุ์สุนัข</li>
+        <li><b>Longevity (years):</b> อายุขัยเฉลี่ยของพันธุ์สุนัข</li>
+        <li><b>Character Traits:</b> ลักษณะนิสัยที่ทำนายจากพันธุ์สุนัข</li>
+        <li><b>Common Health Problems:</b> ปัญหาสุขภาพที่พบได้บ่อยในพันธุ์สุนัขนั้น</li>
+    </ul>
+    <hr>
+    <a href="/">ลองใหม่อีกครั้ง</a>
 </body>
 </html>

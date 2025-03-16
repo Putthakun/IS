@@ -1,7 +1,6 @@
 import streamlit as st
 import joblib
 import numpy as np
-import os
 
 # โหลดโมเดล
 model = joblib.load('dog_breed_model.pkl')
@@ -12,8 +11,22 @@ label_encoder_breed = label_encoders['breed']
 label_encoder_traits = label_encoders['traits']
 
 # กำหนดหัวข้อและคำอธิบาย
-st.title("Dog Breed Character Traits ")
+st.title("Dog Breed Character Traits Predictor")
 st.write("Enter a dog breed to predict its character traits.")
+
+# ข้อมูลเพิ่มเติมเกี่ยวกับ Dataset
+st.subheader("Dataset Information")
+st.write("""
+    This dataset is sourced from Kaggle. It includes the following features:
+    - **Country of Origin**: The country where the breed originated.
+    - **Breed**: The breed of the dog.
+    - **Fur Color**: The typical color of the dog’s fur.
+    - **Height (inches)**: The height of the dog in inches.
+    - **Color of Eyes**: The typical eye color of the breed.
+    - **Longevity (years)**: The average lifespan of the breed.
+    - **Character Traits**: The predicted character traits of the breed.
+    - **Common Health Problems**: Common health issues related to the breed.
+""")
 
 # ช่องป้อนข้อมูล
 breed_input = st.text_input("Enter a dog breed (e.g., Labrador):", "").strip()
