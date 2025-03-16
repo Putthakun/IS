@@ -66,3 +66,4 @@ elif page == "Machine Learning":
     # หน้า Machine Learning
     st.title("Machine Learning")
     st.write("Machine Learning (ML) is a field of artificial intelligence (AI) that focuses on developing algorithms and models that enable computers to learn from data and make decisions or predictions without being explicitly programmed.")
+    st.write("In traditional programming, the programmer writes a set of rules or instructions to tell the computer what to do. In machine learning, instead of explicitly programming the rules, the computer learns from examples in the data, recognizing patterns and making predictions based on them.")
