@@ -39,7 +39,7 @@ elif page == "Dog Breed Machine":
     """)
 
     # ช่องป้อนข้อมูล
-    breed_input = st.text_input("Enter a dog breed (e.g., Labrador):", "").strip()
+    breed_input = st.text_input("Enter a dog breed (Labrador Retriever,German Shepherd,Bulldog,Poodle):", "").strip()
 
     # ปุ่มทำนาย
     if st.button("Predict"):
