@@ -34,7 +34,7 @@ if page == "Home":
     """)
 
     # ช่องป้อนข้อมูล
-    breed_input = st.text_input("Enter a dog breed (e.g., Labrador):", "").strip()
+    breed_input = st.text_input("Enter a dog breed (Labrador Retriever,Bulldog):", "").strip()
 
     # ปุ่มทำนาย
     if st.button("Predict"):
