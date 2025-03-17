@@ -6,9 +6,9 @@ import joblib
 # ตรวจสอบการนำเข้า TensorFlow
 try:
     import tensorflow as tf
-    st.write("TensorFlow imported successfully!")
+    
 except ImportError as e:
-    st.error(f"Failed to import TensorFlow: {str(e)}")
+
     raise
 
 # โหลดโมเดลสุนัข
@@ -30,7 +30,7 @@ mlb = label_encoders_flower['color']
 # โหลดโมเดลไวน์จากโฟลเดอร์ model2
 try:
     wine_model = tf.keras.models.load_model(f"{flower_model_path}/wine_quality_model.h5")
-    st.write("Neural Wine Quality model loaded successfully!")
+
     scaler_wine = joblib.load(f"{flower_model_path}/scaler.pkl")
 except Exception as e:
     st.error(f"Failed to load Neural Wine Quality model or scaler: {str(e)}")
