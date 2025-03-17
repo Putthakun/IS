@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import joblib
+import tensorflow as tf
 
 # โหลดโมเดลสุนัข
 model_dog = joblib.load('dog_breed_model.pkl')
@@ -15,12 +16,16 @@ rf_name = joblib.load(f"{flower_model_path}/rf_name.pkl")
 rf_perfumes = joblib.load(f"{flower_model_path}/rf_perfumes.pkl")
 rf_color = joblib.load(f"{flower_model_path}/rf_color.pkl")
 label_encoders_flower = joblib.load(f"{flower_model_path}/label_encoders.pkl")
-le_name = label_encoders_flower['name']  # ปรับจาก 'le_name' เป็น 'name'
-le_perfumes = label_encoders_flower['perfumes']  # ปรับจาก 'le_perfumes' เป็น 'perfumes'
-mlb = label_encoders_flower['color']  # ปรับจาก 'mlb' เป็น 'color'
+le_name = label_encoders_flower['name']
+le_perfumes = label_encoders_flower['perfumes']
+mlb = label_encoders_flower['color']
+
+# โหลดโมเดลไวน์จากโฟลเดอร์ model2
+wine_model = tf.keras.models.load_model(f"{flower_model_path}/wine_quality_model.h5")
+scaler_wine = joblib.load(f"{flower_model_path}/scaler.pkl")
 
 # เมนูเลือกหน้า
-page = st.selectbox("Select a page", ["Main", "Dog Breed Machine", "Flower Predictor", "Neural Network", "Machine Learning"])
+page = st.selectbox("Select a page", ["Main", "Dog Breed Machine", "Flower Predictor", "Neural Wine Quality Predictor", "Neural Network", "Machine Learning"])
 
 if page == "Main":
     st.title("🌟 Intelligent System 🌟")
@@ -101,6 +106,57 @@ elif page == "Flower Predictor":
             except Exception as e:
                 st.error(f"Error: {str(e)}")
 
+elif page == "Wine Quality Predictor":
+    st.title("Wine Quality Predictor")
+    st.write("Enter the following features to predict the quality of wine.")
+
+    st.subheader("Dataset Information")
+    st.write("""
+        This dataset includes the following features:
+        - **Fixed Acidity**: Fixed acidity level in the wine.
+        - **Volatile Acidity**: Volatile acidity level in the wine.
+        - **Citric Acid**: Citric acid content in the wine.
+        - **Residual Sugar**: Amount of residual sugar in the wine.
+        - **Chlorides**: Chloride content in the wine.
+        - **Free Sulfur Dioxide**: Free sulfur dioxide content in the wine.
+        - **Total Sulfur Dioxide**: Total sulfur dioxide content in the wine.
+        - **Density**: Density of the wine.
+        - **pH**: pH level of the wine.
+        - **Sulphates**: Sulphate content in the wine.
+        - **Alcohol**: Alcohol percentage in the wine.
+        - **Quality**: The predicted quality of the wine (output).
+    """)
+
+    # รับค่า 11 features จากผู้ใช้
+    selected_features = [
+        'fixed acidity', 'volatile acidity', 'citric acid', 'residual sugar', 'chlorides',
+        'free sulfur dioxide', 'total sulfur dioxide', 'density', 'pH', 'sulphates', 'alcohol'
+    ]
+    
+    features = {}
+    for feature in selected_features:
+        features[feature] = st.number_input(f"Enter {feature}:", min_value=0.0, step=0.01)
+
+    if st.button("Predict Wine Quality"):
+        # ตรวจสอบว่าค่าที่ป้อนมานั้นมากกว่า 0 หรือไม่
+        if any(value <= 0 for value in features.values()):
+            st.error("Please enter valid numeric values greater than 0 for all features.")
+        else:
+            try:
+                # แปลงข้อมูลเป็น DataFrame
+                input_data = pd.DataFrame([list(features.values())], columns=selected_features)
+                
+                # ปรับสเกลข้อมูล
+                input_data_scaled = scaler_wine.transform(input_data)
+                
+                # ทำนายผล
+                prediction = wine_model.predict(input_data_scaled)
+                
+                # แสดงผล
+                st.success(f"Predicted Wine Quality: {prediction[0][0]:.2f}")
+            except Exception as e:
+                st.error(f"Error: {str(e)}")
+
 elif page == "Neural Network":
     st.title("Neural Network")
     st.write("A Neural Network is a type of machine learning model inspired by the structure and functioning of the human brain. It’s designed to recognize patterns in data.")
@@ -121,12 +177,11 @@ elif page == "Neural Network":
     
     st.write("Neural networks are powerful tools used in many applications, such as image recognition, natural language processing, and even playing games like chess or Go!")
 
-
 elif page == "Machine Learning":
     st.title("Machine Learning")
     st.write("Machine Learning (ML) is a field of artificial intelligence (AI) that focuses on developing algorithms and models.")
     st.write("In traditional programming, the programmer writes a set of rules. In machine learning, the computer learns from examples.")
     st.write("There are several types of machine learning:")
-    st.write("TSupervised Learning: The model is trained on labeled data, meaning the input data is paired with the correct output. It learns to map inputs to the correct outputs.")
+    st.write("Supervised Learning: The model is trained on labeled data, meaning the input data is paired with the correct output. It learns to map inputs to the correct outputs.")
     st.write("Unsupervised Learning: The model is given data without explicit labels and must find patterns and structure in the data, such as grouping similar data points together.")
     st.write("Reinforcement Learning: The model learns by interacting with an environment and receiving feedback through rewards or penalties, improving over time based on its actions.")
