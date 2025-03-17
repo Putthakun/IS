@@ -25,7 +25,7 @@ wine_model = tf.keras.models.load_model(f"{flower_model_path}/wine_quality_model
 scaler_wine = joblib.load(f"{flower_model_path}/scaler.pkl")
 
 # เมนูเลือกหน้า
-page = st.selectbox("Select a page", ["Main", "Dog Breed Machine", "Flower Predictor", "Neural Wine Quality Predictor", "Neural Network", "Machine Learning"])
+page = st.selectbox("Select a page", ["Main", "Dog Breed Machine", "Flower Predictor", "Wine Quality Predictor", "Neural Network", "Machine Learning"])
 
 if page == "Main":
     st.title("🌟 Intelligent System 🌟")
