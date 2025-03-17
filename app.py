@@ -2,7 +2,14 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import joblib
-import tensorflow as tf
+
+# ตรวจสอบการนำเข้า TensorFlow
+try:
+    import tensorflow as tf
+    st.write("TensorFlow imported successfully!")
+except ImportError as e:
+    st.error(f"Failed to import TensorFlow: {str(e)}")
+    raise
 
 # โหลดโมเดลสุนัข
 model_dog = joblib.load('dog_breed_model.pkl')
@@ -21,11 +28,16 @@ le_perfumes = label_encoders_flower['perfumes']
 mlb = label_encoders_flower['color']
 
 # โหลดโมเดลไวน์จากโฟลเดอร์ model2
-wine_model = tf.keras.models.load_model(f"{flower_model_path}/wine_quality_model.h5")
-scaler_wine = joblib.load(f"{flower_model_path}/scaler.pkl")
+try:
+    wine_model = tf.keras.models.load_model(f"{flower_model_path}/wine_quality_model.h5")
+    st.write("Neural Wine Quality model loaded successfully!")
+    scaler_wine = joblib.load(f"{flower_model_path}/scaler.pkl")
+except Exception as e:
+    st.error(f"Failed to load Neural Wine Quality model or scaler: {str(e)}")
+    raise
 
 # เมนูเลือกหน้า
-page = st.selectbox("Select a page", ["Main", "Dog Breed Machine", "Flower Predictor", "Wine Quality Predictor", "Neural Network", "Machine Learning"])
+page = st.selectbox("Select a page", ["Main", "Dog Breed Machine", "Flower Predictor", "Neural Wine Quality Predictor", "Neural Network", "Machine Learning"])
 
 if page == "Main":
     st.title("🌟 Intelligent System 🌟")
@@ -33,7 +45,6 @@ if page == "Main":
         🤖 **Hello and Welcome!**  
         This is a basic knowledge center about intelligent systems. With basic AI models, please come and try it.! 🐶✨
     """)
-    st.write("Thank you for providing the dataset on Kaggle. It's concise and very helpful for my project.")
 
 elif page == "Dog Breed Machine":
     st.title("Dog Breed Character Traits Predictor")
@@ -107,9 +118,9 @@ elif page == "Flower Predictor":
             except Exception as e:
                 st.error(f"Error: {str(e)}")
 
-elif page == "Wine Quality Predictor":
-    st.title("Wine Quality Predictor")
-    st.write("Enter the following features to predict the quality of wine.")
+elif page == "Neural Wine Quality Predictor":
+    st.title("Neural Wine Quality Predictor")
+    st.write("Enter the following features to predict the quality of wine using a neural network model.")
 
     st.subheader("Dataset Information")
     st.write("""
@@ -128,7 +139,6 @@ elif page == "Wine Quality Predictor":
         - **Quality**: The predicted quality of the wine (output).
     """)
 
-    # รับค่า 11 features จากผู้ใช้
     selected_features = [
         'fixed acidity', 'volatile acidity', 'citric acid', 'residual sugar', 'chlorides',
         'free sulfur dioxide', 'total sulfur dioxide', 'density', 'pH', 'sulphates', 'alcohol'
@@ -138,23 +148,15 @@ elif page == "Wine Quality Predictor":
     for feature in selected_features:
         features[feature] = st.number_input(f"Enter {feature}:", min_value=0.0, step=0.01)
 
-    if st.button("Predict Wine Quality"):
-        # ตรวจสอบว่าค่าที่ป้อนมานั้นมากกว่า 0 หรือไม่
+    if st.button("Predict Neural Wine Quality"):
         if any(value <= 0 for value in features.values()):
             st.error("Please enter valid numeric values greater than 0 for all features.")
         else:
             try:
-                # แปลงข้อมูลเป็น DataFrame
                 input_data = pd.DataFrame([list(features.values())], columns=selected_features)
-                
-                # ปรับสเกลข้อมูล
                 input_data_scaled = scaler_wine.transform(input_data)
-                
-                # ทำนายผล
                 prediction = wine_model.predict(input_data_scaled)
-                
-                # แสดงผล
-                st.success(f"Predicted Wine Quality: {prediction[0][0]:.2f}")
+                st.success(f"Predicted Wine Quality (Neural Model): {prediction[0][0]:.2f}")
             except Exception as e:
                 st.error(f"Error: {str(e)}")
 
@@ -184,5 +186,5 @@ elif page == "Machine Learning":
     st.write("In traditional programming, the programmer writes a set of rules. In machine learning, the computer learns from examples.")
     st.write("There are several types of machine learning:")
     st.write("Supervised Learning: The model is trained on labeled data, meaning the input data is paired with the correct output. It learns to map inputs to the correct outputs.")
-    st.write("Unsupervised Learning: The model is given data without explicit labels and must find patterns and structure in the data, such as grouping similar data points together.")
+    st.write("Unsupervised Learning: The model  The model is given data without explicit labels and must find patterns and structure in the data, such as grouping similar data points together.")
     st.write("Reinforcement Learning: The model learns by interacting with an environment and receiving feedback through rewards or penalties, improving over time based on its actions.")
