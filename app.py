@@ -45,6 +45,7 @@ if page == "Main":
         🤖 **Hello and Welcome!**  
         This is a basic knowledge center about intelligent systems. With basic AI models, please come and try it.! 🐶✨
     """)
+    st.write("Thank you for providing the dataset on Kaggle. It's concise and very helpful for my project.")
 
 elif page == "Dog Breed Machine":
     st.title("Dog Breed Character Traits Predictor")
