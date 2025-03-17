@@ -17,7 +17,7 @@ rf_perfumes = joblib.load('rf_perfumes.pkl')
 rf_color = joblib.load('rf_color.pkl')
 le_name = joblib.load('le_name.pkl')
 le_perfumes = joblib.load('le_perfumes.pkl')
-mlb = joblib.load('mlb.pkl')
+
 
 # เมนูเลือกหน้า
 page = st.selectbox("Select a page", ["Main", "Dog Breed Machine", "Neural Network", "Machine Learning", "Flower Predictor"])
