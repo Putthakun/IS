@@ -103,11 +103,24 @@ elif page == "Flower Predictor":
 
 elif page == "Neural Network":
     st.title("Neural Network")
-    st.write("A Neural Network is a type of machine learning model inspired by the way the human brain works.")
-    st.write("Here's a breakdown of its components:")
-    st.write("Input Layer: This is where the neural network receives input data.")
-    st.write("Hidden Layers: These are layers between the input and output layers.")
-    st.write("Output Layer: This layer produces the final result or prediction.")
+    st.write("A Neural Network is a type of machine learning model inspired by the structure and functioning of the human brain. It’s designed to recognize patterns in data.")
+    
+    st.write("Here’s a breakdown of its key components:")
+    
+    st.write("### 1. Input Layer:")
+    st.write("The input layer receives the raw data, which can be images, text, numbers, etc. Each node in this layer corresponds to a feature or attribute of the input data.")
+    
+    st.write("### 2. Hidden Layers:")
+    st.write("Hidden layers are intermediate layers that process and transform the input data using weighted connections. Each layer’s output is fed into the next layer, gradually refining the information.")
+    
+    st.write("### 3. Output Layer:")
+    st.write("The output layer generates the final predictions or classifications based on the processed data from the hidden layers. For example, in a classification task, the output layer could output the probability of each class.")
+    
+    st.write("### How it Works:")
+    st.write("A neural network learns by adjusting the weights of the connections between neurons based on the error in its predictions. This process is called **training** and is done using algorithms like backpropagation.")
+    
+    st.write("Neural networks are powerful tools used in many applications, such as image recognition, natural language processing, and even playing games like chess or Go!")
+
 
 elif page == "Machine Learning":
     st.title("Machine Learning")
